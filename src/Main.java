@@ -28,6 +28,7 @@ public class Main {
                     6.  Удалить телефон из списка
                     ----------- Contact -----------
                     7.  Добавить контакт
+                    8.  Найти контакт по названию
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -80,8 +81,14 @@ public class Main {
                     contact.setName(scanString.nextLine());
                     System.out.println("Напишите номер телефона: ");
                     contact.setPhoneNumber(scanString.nextLine());
-
                     System.out.println(contactService.addContactToPhone(phoneId3, contact));
+                    break;
+                case 8:
+                    System.out.println("Введите ID телефона: ");
+                    Long phoneId4 = scanInt.nextLong();
+                    System.out.println("Введите имя контакта для поиска: ");
+
+                    System.out.println(contactService.findContactByName(phoneId4, scanString.nextLine()));
                     break;
                 case 0:
                     isTrue = false;
