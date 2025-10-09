@@ -5,6 +5,7 @@ import db.Database;
 import models.Contact;
 import models.Phone;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneDaoImpl  implements PhoneDao {
@@ -40,5 +41,16 @@ public class PhoneDaoImpl  implements PhoneDao {
     @Override
     public List<Phone> getAllPhones() {
         return Database.phones;
+    }
+
+    @Override
+    public List<Phone> getAllPhonesByBrand(String brand) {
+        List<Phone> phonesByBrand = new ArrayList<>();
+        for (Phone phone : Database.phones) {
+            if (phone.getBrand().equalsIgnoreCase(brand)) {
+                phonesByBrand.add(phone);
+            }
+        }
+        return phonesByBrand;
     }
 }
