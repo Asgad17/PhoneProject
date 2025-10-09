@@ -19,6 +19,7 @@ public class Main {
                     1.  Добавить телефон
                     2.  Найти телефон по ID
                     3.  Получить список всех телефонов
+                    4.  Получить список всех телефонов по бренду
                     5.  Обновить информацию о телефоне
                     -------------- Выход --------------
                     0.  Выход
@@ -46,6 +47,10 @@ public class Main {
                     break;
                 case 3:
                     System.out.println(phoneService.getAllPhones());
+                    break;
+                case 4:
+                    System.out.println("Введите название бренда, что бы увидеть весь список: ");
+                    System.out.println(phoneService.getAllPhonesByBrand(scanString.nextLine()));
                     break;
                 case 5:
                     System.out.println("Введите ID что бы найти телефон: ");

@@ -39,5 +39,9 @@ public class PhoneServiceImpl implements PhoneService {
         return phoneDao.getAllPhones();
     }
 
+    @Override
+    public List<Phone> getAllPhonesByBrand(String brand) {
+        return phoneDao.getAllPhonesByBrand(brand);
+    }
 
 }

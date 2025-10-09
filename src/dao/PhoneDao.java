@@ -9,4 +9,5 @@ public interface PhoneDao {
     Phone getPhoneById(Long phoneId);
     Phone updatePhoneNameById(Long phoneId, String newName);
     List<Phone> getAllPhones();
+    List<Phone> getAllPhonesByBrand(String brand);
 }
