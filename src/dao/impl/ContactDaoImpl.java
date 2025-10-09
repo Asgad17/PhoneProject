@@ -29,4 +29,17 @@ public class ContactDaoImpl implements ContactDao {
         }
         return null;
     }
+    @Override
+    public Contact findContactByPhoneNumber(Long phoneId, String phoneNumber) {
+        for (Phone phone : Database.phones) {
+            if (phone.getId().equals(phoneId)) {
+                for (Contact contact : phone.getContacts()) {
+                    if (contact.getPhoneNumber().equals(phoneNumber)) {
+                        return contact;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }

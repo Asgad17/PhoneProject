@@ -16,4 +16,8 @@ public class ContactServiceImpl implements ContactService {
     public Contact findContactByName(Long phoneId, String contactName) {
         return contactDao.findContactByName(phoneId, contactName);
     }
+    @Override
+    public Contact findContactByPhoneNumber(Long phoneId, String phoneNumber) {
+        return contactDao.findContactByPhoneNumber(phoneId, phoneNumber);
+    }
 }
