@@ -21,6 +21,7 @@ public class Main {
                     3.  Получить список всех телефонов
                     4.  Получить список всех телефонов по бренду
                     5.  Обновить информацию о телефоне
+                    6.  Удалить телефон из списка
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,6 +59,11 @@ public class Main {
                     System.out.println("Напишите новое название: ");
 
                     System.out.println(phoneService.updatePhoneNameById(phoneId1, scanString.nextLine()));
+                    break;
+                case 6:
+                    System.out.println("Введите ID что бы удалить телефон: ");
+                    Long phoneId2 = scanInt.nextLong();
+                    phoneService.deletePhoneById(phoneId2);
                     break;
                 case 0:
                     isTrue = false;

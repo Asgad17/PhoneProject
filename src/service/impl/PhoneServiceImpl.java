@@ -44,4 +44,17 @@ public class PhoneServiceImpl implements PhoneService {
         return phoneDao.getAllPhonesByBrand(brand);
     }
 
+    @Override
+    public void deletePhoneById(Long phoneId) {
+        try {
+            if(phoneId == null || phoneId < 0){
+                throw new RuntimeException("ID не может быть null или меньше ноля!");
+            }else {
+                phoneDao.deletePhoneById(phoneId);
+            }
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
 }

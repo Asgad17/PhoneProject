@@ -10,4 +10,5 @@ public interface PhoneDao {
     Phone updatePhoneNameById(Long phoneId, String newName);
     List<Phone> getAllPhones();
     List<Phone> getAllPhonesByBrand(String brand);
+    void deletePhoneById(Long phoneId);
 }
