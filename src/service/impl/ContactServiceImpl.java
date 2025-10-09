@@ -14,25 +14,42 @@ public class ContactServiceImpl implements ContactService {
     public String addContactToPhone(Long phoneId, Contact contact) {
         return contactDao.addContactToPhone(phoneId, contact);
     }
+
     @Override
     public Contact findContactByName(Long phoneId, String contactName) {
         return contactDao.findContactByName(phoneId, contactName);
     }
+
     @Override
     public Contact findContactByPhoneNumber(Long phoneId, String phoneNumber) {
         return contactDao.findContactByPhoneNumber(phoneId, phoneNumber);
     }
+
     @Override
     public List<Contact> sortContactsByName(Long phoneId) {
         try {
-            if(phoneId == null || phoneId < 0){
+            if (phoneId == null || phoneId < 0) {
                 throw new RuntimeException("ID не может быть null или меньше ноля!");
-            }else {
+            } else {
                 return contactDao.sortContactsByName(phoneId);
             }
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public void deleteContactByNameFromPhone(Long phoneId, String contactName) {
+        try {
+            if (phoneId == null || phoneId < 0) {
+                throw new RuntimeException("ID не может быть null или меньше ноля!");
+            } else {
+                contactDao.deleteContactByNameFromPhone(phoneId, contactName);
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

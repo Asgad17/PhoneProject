@@ -10,4 +10,6 @@ public interface ContactService {
     Contact findContactByName(Long phoneId, String contactName);
     Contact findContactByPhoneNumber(Long phoneId, String phoneNumber);
     List<Contact> sortContactsByName(Long phoneId);
+    void deleteContactByNameFromPhone(Long phoneId, String contactName);
+
 }
