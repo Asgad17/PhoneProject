@@ -1,7 +1,47 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import db.GenericId;
+import models.Phone;
+import service.PhoneService;
+import service.impl.PhoneServiceImpl;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner scanInt = new Scanner(System.in);
+        Scanner scanString = new Scanner(System.in);
+
+        PhoneService phoneService = new PhoneServiceImpl();
+
+        boolean isTrue = true;
+        while (isTrue) {
+            System.out.println("""
+                    ============== Phone ==============
+                    1.  Добавить телефон
+                    -------------- Выход --------------
+                    0.  Выход
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    Добро пожаловать! Выберите команду!
+                    ======================================
+                    """);
+            int command = scanInt.nextInt();
+
+            switch (command) {
+                case 1:
+                    Phone phone = new Phone();
+                    phone.setId(GenericId.genPhoneId());
+                    System.out.println("Напишите название телефона: ");
+                    phone.setName(scanString.nextLine());
+                    System.out.println("Напишите бренд телефона: ");
+                    phone.setBrand(scanString.nextLine());
+
+                    System.out.println(phoneService.addPhone(phone));
+                    break;
+                case 0:
+                    isTrue = false;
+                    break;
+                default:
+                    System.out.println("Команда не найдена!!");
+            }
+        }
     }
 }

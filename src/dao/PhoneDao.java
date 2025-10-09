@@ -1,0 +1,7 @@
+package dao;
+
+import models.Phone;
+
+public interface PhoneDao {
+    String addPhone (Phone phone);
+}
