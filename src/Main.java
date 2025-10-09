@@ -30,6 +30,7 @@ public class Main {
                     7.  Добавить контакт
                     8.  Найти контакт по названию
                     9.  Найти контакт по номеру телефона
+                    10. Сортировать по названию
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,7 +99,11 @@ public class Main {
 
                     System.out.println(contactService.findContactByPhoneNumber(phoneId5, scanString.nextLine()));
                     break;
-
+                case 10:
+                    System.out.println("Введите ID телефона: ");
+                    Long phoneId6 = scanInt.nextLong();
+                    System.out.println(contactService.sortContactsByName(phoneId6));
+                    break;
                 case 0:
                     isTrue = false;
                     break;

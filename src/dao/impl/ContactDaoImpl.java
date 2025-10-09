@@ -5,6 +5,11 @@ import db.Database;
 import models.Contact;
 import models.Phone;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class ContactDaoImpl implements ContactDao {
     @Override
     public String addContactToPhone(Long phoneId, Contact contact) {
@@ -41,5 +46,16 @@ public class ContactDaoImpl implements ContactDao {
             }
         }
         return null;
+    }
+    @Override
+    public List<Contact> sortContactsByName(Long phoneId) {
+        for (Phone phone : Database.phones) {
+            if (phone.getId().equals(phoneId)) {
+                List<Contact> sorted = new ArrayList<>(phone.getContacts());
+                Collections.sort(sorted, Comparator.comparing(Contact::getName));
+                return sorted;
+            }
+        }
+        return new ArrayList<>();
     }
 }
