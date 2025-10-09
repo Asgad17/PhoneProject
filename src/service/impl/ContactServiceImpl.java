@@ -12,4 +12,8 @@ public class ContactServiceImpl implements ContactService {
     public String addContactToPhone(Long phoneId, Contact contact) {
         return contactDao.addContactToPhone(phoneId, contact);
     }
+    @Override
+    public Contact findContactByName(Long phoneId, String contactName) {
+        return contactDao.findContactByName(phoneId, contactName);
+    }
 }
