@@ -47,12 +47,12 @@ public class PhoneServiceImpl implements PhoneService {
     @Override
     public void deletePhoneById(Long phoneId) {
         try {
-            if(phoneId == null || phoneId < 0){
+            if (phoneId == null || phoneId < 0) {
                 throw new RuntimeException("ID не может быть null или меньше ноля!");
-            }else {
+            } else {
                 phoneDao.deletePhoneById(phoneId);
             }
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
 

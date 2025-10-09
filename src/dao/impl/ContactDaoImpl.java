@@ -21,6 +21,7 @@ public class ContactDaoImpl implements ContactDao {
         }
         return "Fail";
     }
+
     @Override
     public Contact findContactByName(Long phoneId, String contactName) {
         for (Phone phone : Database.phones) {
@@ -34,6 +35,7 @@ public class ContactDaoImpl implements ContactDao {
         }
         return null;
     }
+
     @Override
     public Contact findContactByPhoneNumber(Long phoneId, String phoneNumber) {
         for (Phone phone : Database.phones) {
@@ -47,6 +49,7 @@ public class ContactDaoImpl implements ContactDao {
         }
         return null;
     }
+
     @Override
     public List<Contact> sortContactsByName(Long phoneId) {
         for (Phone phone : Database.phones) {
@@ -57,5 +60,18 @@ public class ContactDaoImpl implements ContactDao {
             }
         }
         return new ArrayList<>();
+    }
+
+    @Override
+    public void deleteContactByNameFromPhone(Long phoneId, String contactName) {
+        for (Phone phone : Database.phones) {
+            for (Contact contact : phone.getContacts()) {
+                if (phone.getId().equals(phoneId)) {
+                    if (contact.getName().equalsIgnoreCase(contactName)) {
+                        phone.getContacts().remove(contact);
+                    }
+                }
+            }
+        }
     }
 }

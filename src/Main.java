@@ -31,6 +31,7 @@ public class Main {
                     8.  Найти контакт по названию
                     9.  Найти контакт по номеру телефона
                     10. Сортировать по названию
+                    11. Удалить контакт
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,6 +104,12 @@ public class Main {
                     System.out.println("Введите ID телефона: ");
                     Long phoneId6 = scanInt.nextLong();
                     System.out.println(contactService.sortContactsByName(phoneId6));
+                    break;
+                case 11:
+                    System.out.println("Введите ID телефона,что бы удалить контакт: ");
+                    Long phoneId7 = scanInt.nextLong();
+                    System.out.println("Введите имя контакта для удаления: ");
+                    contactService.deleteContactByNameFromPhone(phoneId7, scanString.nextLine());
                     break;
                 case 0:
                     isTrue = false;

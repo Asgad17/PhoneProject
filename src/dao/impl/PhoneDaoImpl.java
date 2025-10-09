@@ -8,7 +8,7 @@ import models.Phone;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneDaoImpl  implements PhoneDao {
+public class PhoneDaoImpl implements PhoneDao {
 
     @Override
     public String addPhone(Phone phone) {
