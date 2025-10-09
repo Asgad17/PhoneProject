@@ -17,6 +17,7 @@ public class Main {
             System.out.println("""
                     ============== Phone ==============
                     1.  Добавить телефон
+                    2.  Найти телефон по ID
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,13 +37,18 @@ public class Main {
 
                     System.out.println(phoneService.addPhone(phone));
                     break;
+                case 2:
+                    System.out.println("Введите ID что бы найти телефон: ");
+                    Long phoneId = scanInt.nextLong();
+                    System.out.println(phoneService.getPhoneById(phoneId));
+                    break;
                 case 0:
                     isTrue = false;
                     break;
                 default:
                     System.out.println("Команда не найдена!!");
             }
-            // todo
+
         }
     }
 }
