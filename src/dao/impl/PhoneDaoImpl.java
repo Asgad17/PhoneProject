@@ -53,4 +53,14 @@ public class PhoneDaoImpl  implements PhoneDao {
         }
         return phonesByBrand;
     }
+
+    @Override
+    public void deletePhoneById(Long phoneId) {
+        for (Phone phone : Database.phones) {
+            if (phone.getId().equals(phoneId)) {
+                Database.phones.remove(phone);
+                System.out.println("Успешно удалнг! ");
+            }
+        }
+    }
 }
