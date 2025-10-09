@@ -12,4 +12,14 @@ public class PhoneDaoImpl  implements PhoneDao {
         Database.phones.add(phone);
         return "Phone successfully added!";
     }
+
+    @Override
+    public Phone getPhoneById(Long phoneId) {
+        for (Phone phone : Database.phones) {
+            if (phone.getId().equals(phoneId)) {
+                return phone;
+            }
+        }
+        return null;
+    }
 }
