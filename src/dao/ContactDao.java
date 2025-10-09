@@ -5,6 +5,7 @@ import models.Contact;
 public interface ContactDao {
     String addContactToPhone(Long phoneId, Contact contact);
     Contact findContactByName(Long phoneId, String contactName);
+    Contact findContactByPhoneNumber(Long phoneId, String phoneNumber);
 
 
 
