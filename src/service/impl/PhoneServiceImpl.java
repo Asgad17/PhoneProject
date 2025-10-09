@@ -26,4 +26,11 @@ public class PhoneServiceImpl implements PhoneService {
         }
         return null;
     }
+
+    @Override
+    public Phone updatePhoneNameById(Long phoneId, String newName) {
+        return phoneDao.updatePhoneNameById(phoneId, newName);
+    }
+
+
 }

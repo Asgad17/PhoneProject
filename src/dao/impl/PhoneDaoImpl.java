@@ -22,4 +22,16 @@ public class PhoneDaoImpl  implements PhoneDao {
         }
         return null;
     }
+
+    @Override
+    public Phone updatePhoneNameById(Long phoneId, String newName) {
+        for (Phone p : Database.phones) {
+            if (p.getId().equals(phoneId)) {
+                p.setName(p.getName());
+                p.setName(newName);
+                return p;
+            }
+        }
+        return null;
+    }
 }

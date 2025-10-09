@@ -18,6 +18,7 @@ public class Main {
                     ============== Phone ==============
                     1.  Добавить телефон
                     2.  Найти телефон по ID
+                    5.  Обновить информацию о телефоне
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,6 +42,13 @@ public class Main {
                     System.out.println("Введите ID что бы найти телефон: ");
                     Long phoneId = scanInt.nextLong();
                     System.out.println(phoneService.getPhoneById(phoneId));
+                    break;
+                case 5:
+                    System.out.println("Введите ID что бы найти телефон: ");
+                    Long phoneId1 = scanInt.nextLong();
+                    System.out.println("Напишите новое название: ");
+
+                    System.out.println(phoneService.updatePhoneNameById(phoneId1, scanString.nextLine()));
                     break;
                 case 0:
                     isTrue = false;
