@@ -1,6 +1,9 @@
 import db.GenericId;
+import models.Contact;
 import models.Phone;
+import service.ContactService;
 import service.PhoneService;
+import service.impl.ContactServiceImpl;
 import service.impl.PhoneServiceImpl;
 
 import java.util.Scanner;
@@ -11,6 +14,7 @@ public class Main {
         Scanner scanString = new Scanner(System.in);
 
         PhoneService phoneService = new PhoneServiceImpl();
+        ContactService contactService = new ContactServiceImpl();
 
         boolean isTrue = true;
         while (isTrue) {
@@ -22,6 +26,8 @@ public class Main {
                     4.  Получить список всех телефонов по бренду
                     5.  Обновить информацию о телефоне
                     6.  Удалить телефон из списка
+                    ----------- Contact -----------
+                    7.  Добавить контакт
                     -------------- Выход --------------
                     0.  Выход
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,6 +70,18 @@ public class Main {
                     System.out.println("Введите ID что бы удалить телефон: ");
                     Long phoneId2 = scanInt.nextLong();
                     phoneService.deletePhoneById(phoneId2);
+                    break;
+                case 7:
+                    System.out.println("Введите ID телефона: ");
+                    Long phoneId3 = scanInt.nextLong();
+                    Contact contact = new Contact();
+                    contact.setId(GenericId.genContactId());
+                    System.out.println("Напишите имя контакта: ");
+                    contact.setName(scanString.nextLine());
+                    System.out.println("Напишите номер телефона: ");
+                    contact.setPhoneNumber(scanString.nextLine());
+
+                    System.out.println(contactService.addContactToPhone(phoneId3, contact));
                     break;
                 case 0:
                     isTrue = false;
