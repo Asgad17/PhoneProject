@@ -5,6 +5,8 @@ import dao.impl.PhoneDaoImpl;
 import models.Phone;
 import service.PhoneService;
 
+import java.util.List;
+
 public class PhoneServiceImpl implements PhoneService {
     private final PhoneDao phoneDao = new PhoneDaoImpl();
 
@@ -30,6 +32,11 @@ public class PhoneServiceImpl implements PhoneService {
     @Override
     public Phone updatePhoneNameById(Long phoneId, String newName) {
         return phoneDao.updatePhoneNameById(phoneId, newName);
+    }
+
+    @Override
+    public List<Phone> getAllPhones() {
+        return phoneDao.getAllPhones();
     }
 
 

@@ -18,6 +18,7 @@ public class Main {
                     ============== Phone ==============
                     1.  Добавить телефон
                     2.  Найти телефон по ID
+                    3.  Получить список всех телефонов
                     5.  Обновить информацию о телефоне
                     -------------- Выход --------------
                     0.  Выход
@@ -42,6 +43,9 @@ public class Main {
                     System.out.println("Введите ID что бы найти телефон: ");
                     Long phoneId = scanInt.nextLong();
                     System.out.println(phoneService.getPhoneById(phoneId));
+                    break;
+                case 3:
+                    System.out.println(phoneService.getAllPhones());
                     break;
                 case 5:
                     System.out.println("Введите ID что бы найти телефон: ");
