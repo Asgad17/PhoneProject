@@ -2,8 +2,11 @@ package service;
 
 import models.Phone;
 
+import java.util.List;
+
 public interface PhoneService {
     String addPhone (Phone phone);
     Phone getPhoneById(Long phoneId);
     Phone updatePhoneNameById(Long phoneId, String newName);
+    List<Phone> getAllPhones();
 }

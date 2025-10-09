@@ -5,6 +5,8 @@ import db.Database;
 import models.Contact;
 import models.Phone;
 
+import java.util.List;
+
 public class PhoneDaoImpl  implements PhoneDao {
 
     @Override
@@ -33,5 +35,10 @@ public class PhoneDaoImpl  implements PhoneDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Phone> getAllPhones() {
+        return Database.phones;
     }
 }
